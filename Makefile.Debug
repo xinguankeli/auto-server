@@ -316,6 +316,29 @@ debug\moc_server.cpp: server\server.h \
 		..\..\..\..\Qt\build\include\QtCore\qvarlengtharray.h \
 		..\..\..\..\Qt\build\include\QtCore\qcontainerfwd.h \
 		..\..\..\..\Qt\build\include\QtCore\qobject_impl.h \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpServer \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpserver.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetworkglobal.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetwork-config.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qabstractsocket.h \
+		..\..\..\..\Qt\build\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\build\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\build\include\QtCore\qhash.h \
+		..\..\..\..\Qt\build\include\QtCore\qmap.h \
+		..\..\..\..\Qt\build\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\build\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\build\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\build\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\build\include\QtCore\qset.h \
+		..\..\..\..\Qt\build\include\QtCore\qcontiguouscache.h \
+		..\..\..\..\Qt\build\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\build\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qhostaddress.h \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpSocket \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpsocket.h \
+		info\host.h \
+		..\..\..\..\Qt\build\include\QtCore\QString \
+		..\..\..\..\Qt\build\include\QtCore\QList \
 		debug\moc_predefs.h \
 		..\..\..\..\Qt\build\bin\moc.exe
 	C:\Qt\build\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/zgq/Documents/net/debug/moc_predefs.h -IC:/Qt/build/mkspecs/win32-msvc -IC:/Users/zgq/Documents/net -IC:/Qt/build/include -IC:/Qt/build/include/QtNetwork -IC:/Qt/build/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" server\server.h -o debug\moc_server.cpp
@@ -468,10 +491,6 @@ debug\main.obj: main.cpp ..\..\..\..\Qt\build\include\QtCore\QCoreApplication \
 		..\..\..\..\Qt\build\include\QtCore\qcontainerfwd.h \
 		..\..\..\..\Qt\build\include\QtCore\qobject_impl.h \
 		..\..\..\..\Qt\build\include\QtCore\qeventloop.h \
-		info\host.h \
-		..\..\..\..\Qt\build\include\QtCore\QObject \
-		..\..\..\..\Qt\build\include\QtCore\QString \
-		..\..\..\..\Qt\build\include\QtCore\QList \
 		..\..\..\..\Qt\build\include\QtCore\QDebug \
 		..\..\..\..\Qt\build\include\QtCore\qdebug.h \
 		..\..\..\..\Qt\build\include\QtCore\qhash.h \
@@ -484,7 +503,22 @@ debug\main.obj: main.cpp ..\..\..\..\Qt\build\include\QtCore\QCoreApplication \
 		..\..\..\..\Qt\build\include\QtCore\qset.h \
 		..\..\..\..\Qt\build\include\QtCore\qcontiguouscache.h \
 		..\..\..\..\Qt\build\include\QtCore\qsharedpointer.h \
-		..\..\..\..\Qt\build\include\QtCore\qsharedpointer_impl.h
+		..\..\..\..\Qt\build\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\..\Qt\build\include\QtCore\QTextCodec \
+		..\..\..\..\Qt\build\include\QtCore\qtextcodec.h \
+		server\server.h \
+		..\..\..\..\Qt\build\include\QtCore\QObject \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpServer \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpserver.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetworkglobal.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetwork-config.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qabstractsocket.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qhostaddress.h \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpSocket \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpsocket.h \
+		info\host.h \
+		..\..\..\..\Qt\build\include\QtCore\QString \
+		..\..\..\..\Qt\build\include\QtCore\QList
 
 debug\server.obj: server\server.cpp server\server.h \
 		..\..\..\..\Qt\build\include\QtCore\QObject \
@@ -539,7 +573,32 @@ debug\server.obj: server\server.cpp server\server.h \
 		..\..\..\..\Qt\build\include\QtCore\qmetatype.h \
 		..\..\..\..\Qt\build\include\QtCore\qvarlengtharray.h \
 		..\..\..\..\Qt\build\include\QtCore\qcontainerfwd.h \
-		..\..\..\..\Qt\build\include\QtCore\qobject_impl.h
+		..\..\..\..\Qt\build\include\QtCore\qobject_impl.h \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpServer \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpserver.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetworkglobal.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qtnetwork-config.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qabstractsocket.h \
+		..\..\..\..\Qt\build\include\QtCore\qiodevice.h \
+		..\..\..\..\Qt\build\include\QtCore\qdebug.h \
+		..\..\..\..\Qt\build\include\QtCore\qhash.h \
+		..\..\..\..\Qt\build\include\QtCore\qmap.h \
+		..\..\..\..\Qt\build\include\QtCore\qtextstream.h \
+		..\..\..\..\Qt\build\include\QtCore\qlocale.h \
+		..\..\..\..\Qt\build\include\QtCore\qvariant.h \
+		..\..\..\..\Qt\build\include\QtCore\qshareddata.h \
+		..\..\..\..\Qt\build\include\QtCore\qset.h \
+		..\..\..\..\Qt\build\include\QtCore\qcontiguouscache.h \
+		..\..\..\..\Qt\build\include\QtCore\qsharedpointer.h \
+		..\..\..\..\Qt\build\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\..\Qt\build\include\QtNetwork\qhostaddress.h \
+		..\..\..\..\Qt\build\include\QtNetwork\QTcpSocket \
+		..\..\..\..\Qt\build\include\QtNetwork\qtcpsocket.h \
+		info\host.h \
+		..\..\..\..\Qt\build\include\QtCore\QString \
+		..\..\..\..\Qt\build\include\QtCore\QList \
+		..\..\..\..\Qt\build\include\QtCore\QDebug \
+		..\..\..\..\Qt\build\include\QtNetwork\QHostAddress
 
 debug\moc_host.obj: debug\moc_host.cpp 
 
