@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QTextCodec>
 #include "server/server.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
