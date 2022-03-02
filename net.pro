@@ -11,7 +11,8 @@ CONFIG -= app_bundle
 SOURCES += \
         info/host.cpp \
         main.cpp \
-        server/server.cpp
+    server/tcpserver.cpp \
+    server/udpserver.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,4 +21,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     info/host.h \
-    server/server.h
+    server/tcpserver.h \
+    server/udpserver.h

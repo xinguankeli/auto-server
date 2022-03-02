@@ -1,46 +1,53 @@
-#include "server.h"
+#include "tcpserver.h"
 #include <QDebug>
-#include <QHostAddress>
-Server::Server(quint16 port)
+TcpServer::TcpServer(quint16 port)
 {
     this->port = port;
-    local = new host();
+    local = new Host();
     tcpServer = new QTcpServer();
-    if(local->hasGlobalIPv6Address()){
-        tcpServer->listen(QHostAddress::AnyIPv6, this->port);
-        qDebug() << "[ipv6]";
-    }else if(local->hasGlobalIPv4Address()){
-        tcpServer->listen(QHostAddress::AnyIPv4, this->port);
-        qDebug() << "[ipv4]";
-    }else{
-        qDebug() << "[Server start error]";
-        return;
-    }
-    qDebug() << "[Server start listenning...]";
     connect(tcpServer, SIGNAL(newConnection()), this, SLOT(whenNewConnection()));
 }
 
-Server::~Server()
+TcpServer::~TcpServer()
 {
     tcpServer->close();
     delete tcpServer;
     delete local;
     deleteLater();
 }
-void Server::whenClientDisconnect()
+
+void TcpServer::listenning()
+{
+    if(local->hasGlobalIPv6Address()){
+        if(!tcpServer->listen(QHostAddress::AnyIPv6, this->port)){
+            return;
+        }
+        qDebug() << "[ipv6 tcp]";
+    }else if(local->hasGlobalIPv4Address()){
+        if(!tcpServer->listen(QHostAddress::AnyIPv4, this->port)){
+            return;
+        }
+        qDebug() << "[ipv4 tcp]";
+    }else{
+        qDebug() << "[tcp server start error]";
+        return;
+    }
+    qDebug() << "[tcp server start listenning...]";
+}
+void TcpServer::whenClientDisconnect()
 {
     qDebug() << "[client downline]";
     QTcpSocket *tcpSocket = static_cast<QTcpSocket *>(QObject::sender());
     tcpSocketList.removeOne(tcpSocket);
 }
 
-void Server::whenClientSendDataToMe()
+void TcpServer::whenClientSendDataToMe()
 {
     QTcpSocket *tcpSocket = static_cast<QTcpSocket *>(QObject::sender());
     QByteArray data = tcpSocket->readAll();
     qDebug() << "[recv data from client]:" << data;
 }
-void Server::whenNewConnection()
+void TcpServer::whenNewConnection()
 {
     qDebug() << "[recv request from client]";
     //新的客户端发来请求

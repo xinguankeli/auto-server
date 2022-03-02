@@ -4,7 +4,7 @@
 #include <QList>
 #include <QDebug>
 #include <QNetworkInterface>
-host::host(QObject *parent)
+Host::Host(QObject *parent)
     : QObject{parent}
 {
     //临时存放地址变量
@@ -40,49 +40,47 @@ host::host(QObject *parent)
     if(!IPv6AddressList.isEmpty()){
         //将获取到的地址存放到类的变量里
         this->setIPv6Address(IPv6AddressList);
-        qDebug() << "[get IPv6 address successful]";
     }else{
         qDebug() << "[get IPv6 address error]";
     }
     if(!IPv4AddressList.isEmpty()){
         this->setIPv4Address(IPv4AddressList);
-        qDebug() << "[get IPv4 address successful]";
     }else{
         qDebug() << "[get IPv4 address error]";
     }
 }
 
-void host::setIPv6Address(QList<QString> address)
+void Host::setIPv6Address(QList<QString> address)
 {
-    this->IPv6Address = address;
+    this->iPv6Address = address;
 }
 
-QList<QString> host::getIPv6Address()
+QList<QString> Host::getIPv6Address()
 {
-    return this->IPv6Address;
+    return this->iPv6Address;
 }
 
-void host::setIPv4Address(QList<QString> address)
+void Host::setIPv4Address(QList<QString> address)
 {
-    this->IPv4Address = address;
+    this->iPv4Address = address;
 }
 
-QList<QString> host::getIPv4Address()
+QList<QString> Host::getIPv4Address()
 {
-    return this->IPv4Address;
+    return this->iPv4Address;
 }
 
-bool host::hasGlobalIPv6Address()
+bool Host::hasGlobalIPv6Address()
 {
-    if(!this->IPv6Address.isEmpty()){
+    if(!this->iPv6Address.isEmpty()){
         return true;
     }
     return false;
 }
 
-bool host::hasGlobalIPv4Address()
+bool Host::hasGlobalIPv4Address()
 {
-    if(!this->IPv4Address.isEmpty()){
+    if(!this->iPv4Address.isEmpty()){
         return true;
     }
     return false;

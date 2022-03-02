@@ -5,14 +5,14 @@
 #include <QString>
 #include <QList>
 //该类是用来获取此台计算机的信息的
-class host : public QObject
+class Host : public QObject
 {
     Q_OBJECT
 public:
-    explicit host(QObject *parent = nullptr);
+    explicit Host(QObject *parent = nullptr);
 private:
-    QList<QString> IPv6Address;
-    QList<QString> IPv4Address;
+    QList<QString> iPv6Address;
+    QList<QString> iPv4Address;
     //set get
 public:
     void setIPv6Address(QList<QString> address);
