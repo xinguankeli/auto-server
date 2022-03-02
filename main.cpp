@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
     tcpServer->listenning();
     UdpServer *udpServer = new UdpServer(quint16(65535));
     udpServer->listenning();
+    qDebug() << "this is a auto server";
     return a.exec();
 }
