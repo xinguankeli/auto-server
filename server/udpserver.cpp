@@ -17,20 +17,26 @@ UdpServer::~UdpServer()
     deleteLater();
 }
 
-void UdpServer::listenning()
+void UdpServer::listenning(int ipv)
 {
-    if(local->hasGlobalIPv6Address()){
-        if(!udpSocket->bind(QHostAddress::AnyIPv6, this->port)){
-            return;
+    if( ipv != 4 && ipv != 6){
+        qDebug() << "[ip version error]";
+        return;
+    }
+    if(ipv == 4){
+        if(local->hasGlobalIPv4Address()){
+            if(!udpSocket->bind(QHostAddress::AnyIPv4, this->port)){
+                return;
+            }
+            qDebug() << "[ipv4 udp]";
         }
-        qDebug() << "[ipv6 udp]";
-    }else if(local->hasGlobalIPv4Address()){
-        if(!udpSocket->bind(QHostAddress::AnyIPv4, this->port)){
-            return;
+    }else if(ipv == 6){
+        if(local->hasGlobalIPv6Address()){
+            if(!udpSocket->bind(QHostAddress::AnyIPv6, this->port)){
+                return;
+            }
+            qDebug() << "[ipv6 udp]";
         }
-        qDebug() << "[ipv4 udp]";
-    }else{
-        qDebug() << "[udp server start error]";
     }
     qDebug() << "[udp server start listenning...]";
 }
@@ -41,6 +47,6 @@ void UdpServer::whenClientSendDataTome()
     while(udpSocket->hasPendingDatagrams()){
         array.resize(udpSocket->pendingDatagramSize());
         udpSocket->readDatagram(array.data(), array.size());
-        qDebug() << "udp server recive data:" << QString::fromUtf8(array);
+        qDebug() << "[udp recv data from client]:" <<array;
     }
 }

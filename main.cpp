@@ -8,9 +8,8 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF8"));
     TcpServer *tcpServer = new TcpServer(quint16(65534));
-    tcpServer->listenning();
+    tcpServer->listenning(4);
     UdpServer *udpServer = new UdpServer(quint16(65535));
-    udpServer->listenning();
-    qDebug() << "this is a auto server";
+    udpServer->listenning(4);
     return a.exec();
 }

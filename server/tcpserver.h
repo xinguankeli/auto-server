@@ -23,7 +23,7 @@ private:
     //客户端和本地链接的所有socket
     QList<QTcpSocket*> tcpSocketList;
 public:
-    void listenning();
+    void listenning(int ipv);
 private slots:
     //创建新TCP链接槽函数
     void whenNewConnection();

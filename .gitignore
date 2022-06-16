@@ -1,0 +1,12 @@
+*.pro.user*
+.vscode
+*.o
+data/
+Makefile
+moc*
+*.pro.user
+.qmake.stash
+qrc_resource.cpp
+build
+release
+debug

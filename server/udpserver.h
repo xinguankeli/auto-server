@@ -18,7 +18,7 @@ private:
     //本机信息
     Host *local;
 public:
-    void listenning();
+    void listenning(int ipv);
 private slots:
     //客户端发来的数据处理
     void whenClientSendDataTome();

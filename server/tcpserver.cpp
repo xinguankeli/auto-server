@@ -16,21 +16,27 @@ TcpServer::~TcpServer()
     deleteLater();
 }
 
-void TcpServer::listenning()
+void TcpServer::listenning(int ipv)
 {
-    if(local->hasGlobalIPv6Address()){
-        if(!tcpServer->listen(QHostAddress::AnyIPv6, this->port)){
-            return;
-        }
-        qDebug() << "[ipv6 tcp]";
-    }else if(local->hasGlobalIPv4Address()){
-        if(!tcpServer->listen(QHostAddress::AnyIPv4, this->port)){
-            return;
-        }
-        qDebug() << "[ipv4 tcp]";
-    }else{
-        qDebug() << "[tcp server start error]";
+    if(ipv != 4 && ipv != 6){
+        qDebug() << "[ip version error]";
         return;
+    }
+    if(ipv == 4){
+        if(local->hasGlobalIPv4Address()){
+            if(!tcpServer->listen(QHostAddress::AnyIPv4, this->port)){
+                return;
+            }
+            qDebug() << "[ipv4 tcp]";
+        }
+    }
+    if(ipv == 6){
+        if(local->hasGlobalIPv6Address()){
+                if(!tcpServer->listen(QHostAddress::AnyIPv6, this->port)){
+                    return;
+                }
+                qDebug() << "[ipv6 tcp]";
+            }
     }
     qDebug() << "[tcp server start listenning...]";
 }
@@ -45,7 +51,7 @@ void TcpServer::whenClientSendDataToMe()
 {
     QTcpSocket *tcpSocket = static_cast<QTcpSocket *>(QObject::sender());
     QByteArray data = tcpSocket->readAll();
-    qDebug() << "[recv data from client]:" << data;
+    qDebug() << "[tcp recv data from client]:" << data;
 }
 void TcpServer::whenNewConnection()
 {
